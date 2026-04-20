@@ -1,0 +1,14 @@
+[Unit]
+Description=NextCloud Sync Service
+After=network.target mergerfs.service
+RequiresMountsFor=/path/to/nextcloud
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 60
+ExecStart=/path/to/nextcloudSync.sh
+Restart=on-failure
+User=user
+
+[Install]
+WantedBy=multi-user.target
