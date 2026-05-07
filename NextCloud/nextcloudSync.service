@@ -8,3 +8,4 @@ RequiresMountsFor=/path/to/nextcloud
 Type=oneshot
 ExecStart=/usr/bin/flock -n /tmp/nextcloudsync.lock \
   /path/to/nextcloudSync.sh
+User=user
