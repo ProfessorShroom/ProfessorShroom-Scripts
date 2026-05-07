@@ -1,0 +1,10 @@
+[Unit]
+Description=Nextcloud Sync (headless)
+Wants=network-online.target
+After=network-online.target
+RequiresMountsFor=/path/to/nextcloud
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flock -n /tmp/nextcloudsync.lock \
+  /path/to/nextcloudSync.sh
