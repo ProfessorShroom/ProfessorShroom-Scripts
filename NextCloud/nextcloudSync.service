@@ -2,10 +2,13 @@
 Description=Nextcloud Sync (headless)
 Wants=network-online.target
 After=network-online.target
-RequiresMountsFor=/path/to/nextcloud
+RequiresMountsFor=/mnt/porygonStorage
 
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/flock -n /tmp/nextcloudsync.lock \
-  /path/to/nextcloudSync.sh
-User=user
+  /mnt/porygonStorage/Storage/Scripts/NextCloud/NextCloudSync.sh
+User=charlie
+StandardOutput=null
+StandardError=journal
+EnvironmentFile=/home/user/nextcloud.env
